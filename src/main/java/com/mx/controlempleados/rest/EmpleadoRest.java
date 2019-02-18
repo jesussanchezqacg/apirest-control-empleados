@@ -56,7 +56,15 @@ public class EmpleadoRest {
     @ResponseBody
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por rfc", response = List.class)
     private ResponseEntity<List<Empleado>> findAllByRfc(@RequestBody Empleado empleado) {
-        return ResponseEntity.ok(empleadoService.listByRfc(empleado.getRfc()));
+        List<Empleado> listEmpleado;
+        if(empleado == null || !(empleado instanceof Empleado)) {
+            throw new RuntimeException("El parametro recibido no es valido, intente nuevamente");
+        } else if (empleado.getRfc().isEmpty() || empleado.getRfc() == null) {
+            throw new RuntimeException("El parametro recibido no es valido, intente nuevamente");
+        } else {
+            listEmpleado = empleadoService.listByRfc(empleado.getRfc());
+        }
+        return ResponseEntity.ok(listEmpleado);
     }
 
     @GetMapping(name = "findAllByCurp",
@@ -66,7 +74,15 @@ public class EmpleadoRest {
     @ResponseBody
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por curp", response = List.class)
     private ResponseEntity<List<Empleado>> findAllByCurp(@RequestBody Empleado empleado) {
-        return ResponseEntity.ok(empleadoService.listByCurp(empleado.getCurp()));
+        List<Empleado> listEmpleado;
+        if(empleado == null || !(empleado instanceof Empleado)) {
+            throw new RuntimeException("El parametro recibido no es valido, intente nuevamente");
+        } else if (empleado.getCurp().isEmpty() || empleado.getCurp() == null) {
+            throw new RuntimeException("El parametro recibido no es valido, intente nuevamente");
+        } else {
+            listEmpleado =  empleadoService.listByCurp(empleado.getCurp());
+        }
+        return ResponseEntity.ok(listEmpleado);
     }
 
     @GetMapping(name = "findAll",

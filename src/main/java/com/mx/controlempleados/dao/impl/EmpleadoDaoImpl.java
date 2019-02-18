@@ -18,7 +18,7 @@ public class EmpleadoDaoImpl implements EmpleadoDao {
 
     @Override
     public List<Empleado> listByNombreCompleto(String nombreCompleto) {
-        return empleadoRepository.findByNombreCompletoContainingIgnoreCaseOrderByNombreCompletoAsc(nombreCompleto);
+        return empleadoRepository.findByNombreCompletoContainingIgnoreCaseAAndRegVigenteIsTrueOrderByNombreCompletoAsc(nombreCompleto);
     }
 
     @Override

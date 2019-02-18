@@ -60,7 +60,7 @@ public class Empleado {
     @Column(name = "foto_perfil")
     private String fotoPerfil;
 
-    @Column(name = "reg_vigente", nullable = false, columnDefinition = "NUMERIC DEFAULT 1")
+    @Column(name = "reg_vigente", insertable = false, nullable = false, columnDefinition = "NUMERIC DEFAULT 1")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean regVigente;
 }

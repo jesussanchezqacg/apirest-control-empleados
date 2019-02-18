@@ -11,7 +11,7 @@ import java.util.List;
 public interface EmpleadoRepository extends JpaRepository<Empleado, Serializable> {
 
     List<Empleado> findByNombreCompletoContainingIgnoreCaseAndRegVigenteIsTrueOrderByNombreCompletoAsc(String nombreCompleto);
-    List<Empleado> findByRfcContainingIgnoreCaseOrderByRfcAsc(String rfc);
-    List<Empleado> findByCurpContainingIgnoreCaseOrderByCurpAsc(String curp);
-    Empleado findByIdEmpleado(int idEmpleado);
+    List<Empleado> findByRfcContainingIgnoreCaseAndRegVigenteIsTrueOrderByRfcAsc(String rfc);
+    List<Empleado> findByCurpContainingIgnoreCaseAndRegVigenteIsTrueOrderByCurpAsc(String curp);
+    Empleado findByIdEmpleadoAndRegVigenteIsTrue(int idEmpleado);
 }

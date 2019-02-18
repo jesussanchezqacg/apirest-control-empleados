@@ -23,12 +23,12 @@ public class EmpleadoDaoImpl implements EmpleadoDao {
 
     @Override
     public List<Empleado> listByRfc(String rfc) {
-        return empleadoRepository.findByRfcContainingIgnoreCaseOrderByRfcAsc(rfc);
+        return empleadoRepository.findByRfcContainingIgnoreCaseAndRegVigenteIsTrueOrderByRfcAsc(rfc);
     }
 
     @Override
     public List<Empleado> listByCurp(String curp) {
-        return empleadoRepository.findByCurpContainingIgnoreCaseOrderByCurpAsc(curp);
+        return empleadoRepository.findByCurpContainingIgnoreCaseAndRegVigenteIsTrueOrderByCurpAsc(curp);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class EmpleadoDaoImpl implements EmpleadoDao {
 
     @Override
     public Empleado findByIdEmpleado(int idEmpleado) {
-        return empleadoRepository.findByIdEmpleado(idEmpleado);
+        return empleadoRepository.findByIdEmpleadoAndRegVigenteIsTrue(idEmpleado);
     }
 
     @Override

@@ -30,13 +30,14 @@ public class EmpleadoRest {
     @GetMapping(name = "findAllByNombreCompleto",
                 path = "findAllByNombreCompleto",
                 produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE},
-                consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
+                consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.ALL_VALUE})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por nombre completo", response = List.class)
-    private ResponseEntity<List<Empleado>> findAllByNombreCompleto(@RequestBody Empleado empleado) {
-        return ResponseEntity.ok(empleadoService.listByNombreCompleto(empleado.getNombreCompleto()));
+    private ResponseEntity<List<Empleado>> findAllByNombreCompleto(@RequestBody Empleado empleado, @RequestParam("nombre") String nombre) {
+        return ResponseEntity.ok(empleadoService.listByNombreCompleto((empleado.getNombreCompleto() != null)?empleado.getNombreCompleto():nombre));
     }
+
 
     @GetMapping(name = "findAllByRfc",
                 path = "findAllByRfc",

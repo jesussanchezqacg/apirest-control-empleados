@@ -10,8 +10,8 @@ import java.util.List;
 @Repository("empleadoRepository")
 public interface EmpleadoRepository extends JpaRepository<Empleado, Serializable> {
 
-    List<Empleado> findByNombreCompletoContainingIgnoreCaseAndRegVigenteIsTrueOrderByNombreCompletoAsc(String nombreCompleto);
-    List<Empleado> findByRfcContainingIgnoreCaseAndRegVigenteIsTrueOrderByRfcAsc(String rfc);
-    List<Empleado> findByCurpContainingIgnoreCaseAndRegVigenteIs1OrderByCurpAsc(String curp);
-    Empleado findByIdEmpleadoAndRegVigenteIsTrue(int idEmpleado);
+    List<Empleado> findByNombreCompletoContainingIgnoreCaseOrderByNombreCompletoAsc(String nombreCompleto);
+    List<Empleado> findByRfcContainingIgnoreCaseOrderByRfcAsc(String rfc);
+    List<Empleado> findByCurpContainingIgnoreCaseOrderByCurpAsc(String curp);
+    Empleado findByIdEmpleado(int idEmpleado);
 }

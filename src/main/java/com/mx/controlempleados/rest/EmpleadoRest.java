@@ -88,6 +88,7 @@ public class EmpleadoRest {
                 path = "findAll",
                 produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseBody
+    @CrossOrigin
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados", response = List.class)
     private ResponseEntity<List<Empleado>> findAll() {
         return ResponseEntity.ok(empleadoService.listAll());

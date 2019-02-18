@@ -1,5 +1,6 @@
 package com.mx.controlempleados.rest;
 
+import com.mx.controlempleados.CustomNotFoundException;
 import com.mx.controlempleados.entity.Empleado;
 import com.mx.controlempleados.service.EmpleadoService;
 import io.swagger.annotations.Api;
@@ -11,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,8 +36,16 @@ public class EmpleadoRest {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por nombre completo", response = List.class)
-    private ResponseEntity<List<Empleado>> findAllByNombreCompleto(@RequestBody Empleado empleado) {
-        return ResponseEntity.ok(empleadoService.listByNombreCompleto(empleado.getNombreCompleto()));
+    private ResponseEntity<List<Empleado>> findAllByNombreCompleto(@RequestBody Empleado empleado) throws CustomNotFoundException {
+        List<Empleado> listEmpleado;
+        if(empleado == null || !(empleado instanceof Empleado)) {
+            throw new RuntimeException("El parametro recibido no es valido, intente nuevamente");
+        } else if (empleado.getIdEmpleado() == 0) {
+            throw new RuntimeException("El parametro recibido no es valido, intente nuevamente");
+        } else {
+            listEmpleado = empleadoService.listByNombreCompleto(empleado.getNombreCompleto());
+        }
+        return ResponseEntity.ok(listEmpleado);
     }
 
 

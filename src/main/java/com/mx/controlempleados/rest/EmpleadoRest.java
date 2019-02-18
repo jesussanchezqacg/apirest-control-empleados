@@ -34,8 +34,8 @@ public class EmpleadoRest {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por nombre completo", response = List.class)
-    private ResponseEntity<List<Empleado>> findAllByNombreCompleto(@RequestBody Empleado empleado, @RequestParam("nombre") String nombre) {
-        return ResponseEntity.ok(empleadoService.listByNombreCompleto((empleado.getNombreCompleto() != null)?empleado.getNombreCompleto():nombre));
+    private ResponseEntity<List<Empleado>> findAllByNombreCompleto(@RequestBody Empleado empleado) {
+        return ResponseEntity.ok(empleadoService.listByNombreCompleto(empleado.getNombreCompleto()));
     }
 
 

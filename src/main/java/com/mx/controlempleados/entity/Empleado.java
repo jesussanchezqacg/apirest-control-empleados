@@ -45,7 +45,7 @@ public class Empleado {
     @Column(name = "direccion", nullable = false)
     private String direccion;
 
-    @Column(name = "corre_electronico")
+    @Column(name = "correo_electronico")
     private String correoElectronico;
 
     @Column(name = "telefono")

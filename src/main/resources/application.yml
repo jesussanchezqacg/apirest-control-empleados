@@ -27,7 +27,3 @@ spring:
         generateStatistics: true
         formatSql: true
         dialect: org.hibernate.dialect.PostgreSQL9Dialect
-logging:
-  level:
-    org.hibernate.stat: debug
-    org.hibernate.type: trace

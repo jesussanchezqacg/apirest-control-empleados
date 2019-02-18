@@ -40,7 +40,7 @@ public class EmpleadoRest {
         List<Empleado> listEmpleado;
         if(empleado == null || !(empleado instanceof Empleado)) {
             throw new RuntimeException("El parametro recibido no es valido, intente nuevamente");
-        } else if (empleado.getIdEmpleado() == 0) {
+        } else if (empleado.getNombreCompleto().isEmpty() || empleado.getNombreCompleto() == null) {
             throw new RuntimeException("El parametro recibido no es valido, intente nuevamente");
         } else {
             listEmpleado = empleadoService.listByNombreCompleto(empleado.getNombreCompleto());

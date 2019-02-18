@@ -60,8 +60,7 @@ public class EmpleadoRest {
 
     @GetMapping(name = "findAll",
                 path = "findAll",
-                produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE},
-                consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
+                produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseBody
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados", response = List.class)
     private ResponseEntity<List<Empleado>> findAll() {

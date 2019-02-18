@@ -34,6 +34,7 @@ public class EmpleadoRest {
                 consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.ALL_VALUE})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
+    @CrossOrigin
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por nombre completo", response = List.class)
     private ResponseEntity<List<Empleado>> findAllByNombreCompleto(@RequestBody Empleado empleado) throws CustomNotFoundException {
         List<Empleado> listEmpleado;
@@ -53,6 +54,7 @@ public class EmpleadoRest {
                 produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE},
                 consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseBody
+    @CrossOrigin
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por rfc", response = List.class)
     private ResponseEntity<List<Empleado>> findAllByRfc(@RequestBody Empleado empleado) {
         List<Empleado> listEmpleado;
@@ -71,6 +73,7 @@ public class EmpleadoRest {
                 produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE},
                 consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseBody
+    @CrossOrigin
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por curp", response = List.class)
     private ResponseEntity<List<Empleado>> findAllByCurp(@RequestBody Empleado empleado) {
         List<Empleado> listEmpleado;
@@ -100,6 +103,7 @@ public class EmpleadoRest {
                 consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
+    @CrossOrigin
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Búsqueda de empleados por id", response = Empleado.class)
     private ResponseEntity<Empleado> findByIdEmpleado(@RequestBody Empleado empleado) {
         if(empleado == null || !(empleado instanceof Empleado)) {
@@ -117,6 +121,7 @@ public class EmpleadoRest {
                  consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
+    @CrossOrigin
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Guardar Empleado", response = Empleado.class)
     private ResponseEntity<Empleado> saveEmpleado(@RequestBody Empleado empleado) {
         if(empleado == null || !(empleado instanceof Empleado)) {
@@ -132,6 +137,7 @@ public class EmpleadoRest {
                 consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
+    @CrossOrigin
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Actualizar Empleado", response = Empleado.class)
     private ResponseEntity<Empleado> updateEmpleado(@RequestBody Empleado empleado) {
         if(empleado == null || !(empleado instanceof Empleado)) {
@@ -147,6 +153,7 @@ public class EmpleadoRest {
                    consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
+    @CrossOrigin
     @ApiOperation(value = "CRUD (Create, Read, Update and Delete) :: Eliminar Empleado", response = Map.class)
     private ResponseEntity<Map<String,Object>> deleteEmpleado(@RequestBody Empleado empleado) {
         if(empleado == null || !(empleado instanceof Empleado)) {

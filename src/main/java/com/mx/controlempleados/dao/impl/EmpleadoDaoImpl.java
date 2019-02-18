@@ -28,7 +28,7 @@ public class EmpleadoDaoImpl implements EmpleadoDao {
 
     @Override
     public List<Empleado> listByCurp(String curp) {
-        return empleadoRepository.findByCurpContainingIgnoreCaseAndRegVigenteIsTrueOrderByCurpAsc(curp);
+        return empleadoRepository.findByCurpContainingIgnoreCaseAndRegVigenteIs1OrderByCurpAsc(curp);
     }
 
     @Override
